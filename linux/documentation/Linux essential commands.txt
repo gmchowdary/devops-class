@@ -1,0 +1,136 @@
+Locatuion of commands /bin/bash
+Anything in Linux is a file or directory
+What ever we deal with is a file in OS
+
+Syntax:
+commands <options> <arguments> <inputs=values>
+$ - user
+# - root
+
+
+.file
+..
+
+pipes |
+filters *
+sequnce of commands &&
+& - run deamon
+line1 \ 
+line2 \
+
+
+any-command --help
+
+File operations
+touch 
+	create a file
+rm
+	remove a file
+cat filename.extension
+	show content
+cat > filename.extension
+	write a file
+cat >> filename.extension
+	appends at last line
+cat > filename.extension <<END
+Hello this is geeth
+END
+	write into file with one command
+head -f continues changes on file
+tail -100 first 100 lines
+zip <dir or file>
+unzip <file.rar>
+tar <>
+
+absolute path -> exact location
+relative path -> start from somewere
+
+file mobility
+cp source destination
+mv source destination
+
+Directory commands
+mkdir <directory name> 
+	- create directory empty
+mkdir -p ~/Desktop/x/y/x
+rmdir <directory name> 
+	-> remove empty directory>
+rm -r <directory or file>
+	-> remove whole directory and files
+
+View list of files or directories
+ls
+ls -l
+ls -ls
+ls -a 
+	- to show hidden files
+ls -la
+ls -R
+	recursive list
+
+check disk size
+df -h hardisk free
+free -h available ram
+du -h total space occupied by file or directory
+-h human readable format
+
+File permissions
+change permissions
+chmod <options> <Filename or directory>
+	-> modifiy file or directory permissions
+chmod -R <options> <Filename or directory>
+	-> modifiy file or directory permissions deeper files as well
+
+drwxrwxrwx
+d{rwx}{rwx}{rwx}
+   u  g  o
+u - only root can perform these actions
+usr - any system user can perform these actions
+any - any user can perform these actions
+
+d - means directory
+rwx - read write execute
+
+-rwxrwxrwx
+- indicates file
+
+number options
+1 execute
+2 read
+4 write
+chmod 762 x.txt
+chmod 700 x.txt
+string format
+chmod u=rwx,g=rx,o=r x.txt
+
+
+Change Owner of file or directory
+chown <current owner> <new owner>
+
+
+find files
+find . <file or directory>
+https://www.tecmint.com/35-practical-examples-of-linux-find-command/
+
+which 
+	location of command
+	which mongo
+cd 
+sort - sort based on, file
+grep - find string pattern from pevious commands
+diff <1> <2> - comparission between files
+wc <file> - word count
+uniq - unique words in file
+ps - process running
+ps -ef | grep  nginx
+
+top - live metrices
+date - system date
+su /sudo - switch user
+man - manual
+pwd - present working directory
+
+ssh - connect to remote system
+scp - copy files to remote system
+adduser add a user
+passwd change password

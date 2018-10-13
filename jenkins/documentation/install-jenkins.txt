@@ -1,0 +1,202 @@
+geeth@geeth-Lenovo-E40-80:~$ cd Downloads/
+geeth@geeth-Lenovo-E40-80:~/Downloads$ chmod 400 de
+demo_eseal.tar                 devops-demo/                   devops-geethsoft-demo-key.pem  
+demo.sql.crdownload            devops.doc                     
+geeth@geeth-Lenovo-E40-80:~/Downloads$ chmod 400 devops-geethsoft-demo-key.pem 
+geeth@geeth-Lenovo-E40-80:~/Downloads$ ssh -i "devops-geethsoft-demo-key.pem" ubuntu@ec2-13-233-74-240.ap-south-1.compute.amazonaws.com
+The authenticity of host 'ec2-13-233-74-240.ap-south-1.compute.amazonaws.com (13.233.74.240)' can't be established.
+ECDSA key fingerprint is SHA256:+ltvTmWXf98Ku41lONT/BFnA0IasfvCIU/BM3rz+od8.
+Are you sure you want to continue connecting (yes/no)? 
+Host key verification failed.
+geeth@geeth-Lenovo-E40-80:~/Downloads$ ssh -i "devops-geethsoft-demo-key.pem" ubuntu@ec2-13-233-74-240.ap-south-1.compute.amazonaws.com
+The authenticity of host 'ec2-13-233-74-240.ap-south-1.compute.amazonaws.com (13.233.74.240)' can't be established.
+ECDSA key fingerprint is SHA256:+ltvTmWXf98Ku41lONT/BFnA0IasfvCIU/BM3rz+od8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-13-233-74-240.ap-south-1.compute.amazonaws.com,13.233.74.240' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.4.0-1067-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@ip-172-31-24-100:~$ 
+ubuntu@ip-172-31-24-100:~$ apt update
+Reading package lists... Done
+W: chmod 0700 of directory /var/lib/apt/lists/partial failed - SetupAPTPartialDirectory (1: Operation not permitted)
+E: Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+E: Unable to lock directory /var/lib/apt/lists/
+W: Problem unlinking the file /var/cache/apt/pkgcache.bin - RemoveCaches (13: Permission denied)
+W: Problem unlinking the file /var/cache/apt/srcpkgcache.bin - RemoveCaches (13: Permission denied)
+ubuntu@ip-172-31-24-100:~$ sudo apt update
+Get:1 http://security.ubuntu.com/ubuntu xenial-security InRelease [107 kB]
+Hit:2 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial InRelease
+Get:3 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]
+Get:4 http://security.ubuntu.com/ubuntu xenial-security/main Sources [134 kB]
+Get:5 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]
+Get:6 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial/main Sources [868 kB]            
+Get:7 http://security.ubuntu.com/ubuntu xenial-security/restricted Sources [2,116 B]
+Get:8 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [75.8 kB]
+Get:9 http://security.ubuntu.com/ubuntu xenial-security/multiverse Sources [2,088 B]
+Get:10 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial/restricted Sources [4,808 B]
+Get:11 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [556 kB]
+Get:12 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial/universe Sources [7,728 kB]
+Get:13 http://security.ubuntu.com/ubuntu xenial-security/main Translation-en [235 kB]
+Get:14 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [379 kB]
+Get:15 http://security.ubuntu.com/ubuntu xenial-security/universe Translation-en [144 kB]
+Get:16 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [3,460 B]
+Get:17 http://security.ubuntu.com/ubuntu xenial-security/multiverse Translation-en [1,744 B]
+Get:18 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial/multiverse Sources [179 kB]
+Get:19 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [7,532 kB]
+Get:20 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial/universe Translation-en [4,354 kB]
+Get:21 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial/multiverse amd64 Packages [144 kB]                                              
+Get:22 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial/multiverse Translation-en [106 kB]                                              
+Get:23 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main Sources [321 kB]                                                   
+Get:24 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/restricted Sources [2,528 B]                                            
+Get:25 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe Sources [222 kB]                                               
+Get:26 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/multiverse Sources [8,388 B]                                            
+Get:27 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [849 kB]                                            
+Get:28 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main Translation-en [347 kB]                                            
+Get:29 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [691 kB]                                        
+Get:30 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe Translation-en [279 kB]                                        
+Get:31 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [16.4 kB]                                     
+Get:32 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/multiverse Translation-en [8,344 B]                                     
+Get:33 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/main Sources [4,488 B]                                                
+Get:34 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/universe Sources [6,740 B]                                            
+Get:35 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages [6,756 B]                                         
+Get:36 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/main Translation-en [4,180 B]                                         
+Get:37 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [7,568 B]                                     
+Get:38 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/universe Translation-en [4,048 B]                                     
+Fetched 25.5 MB in 9s (2,583 kB/s)                                                                                                            
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+14 packages can be upgraded. Run 'apt list --upgradable' to see them.
+ubuntu@ip-172-31-24-100:~$ 
+ubuntu@ip-172-31-24-100:~$ sudo apt install docker
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  docker
+0 upgraded, 1 newly installed, 0 to remove and 14 not upgraded.
+Need to get 12.2 kB of archives.
+After this operation, 65.5 kB of additional disk space will be used.
+Get:1 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial/universe amd64 docker amd64 1.5-1 [12.2 kB]
+Fetched 12.2 kB in 0s (16.9 kB/s)
+Selecting previously unselected package docker.
+(Reading database ... 51284 files and directories currently installed.)
+Preparing to unpack .../docker_1.5-1_amd64.deb ...
+Unpacking docker (1.5-1) ...
+Processing triggers for man-db (2.7.5-1) ...
+Setting up docker (1.5-1) ...
+ubuntu@ip-172-31-24-100:~$ service docker start
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Authentication is required to start 'docker.service'.
+Authenticating as: Ubuntu (ubuntu)
+Password: 
+ubuntu@ip-172-31-24-100:~$ sudo service docker start
+Failed to start docker.service: Unit docker.service not found.
+ubuntu@ip-172-31-24-100:~$ sudo apt install docker.io
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  bridge-utils cgroupfs-mount ubuntu-fan
+Suggested packages:
+  mountall aufs-tools debootstrap docker-doc rinse zfs-fuse | zfsutils
+The following NEW packages will be installed:
+  bridge-utils cgroupfs-mount docker.io ubuntu-fan
+0 upgraded, 4 newly installed, 0 to remove and 14 not upgraded.
+Need to get 17.1 MB of archives.
+After this operation, 90.5 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 bridge-utils amd64 1.5-9ubuntu1 [28.6 kB]
+Get:2 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial/universe amd64 cgroupfs-mount all 1.2 [4,970 B]
+Get:3 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 docker.io amd64 17.03.2-0ubuntu2~16.04.1 [17.1 MB]
+Get:4 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 ubuntu-fan all 0.12.8~16.04.2 [35.6 kB]                       
+Fetched 17.1 MB in 6s (2,544 kB/s)                                                                                                            
+Preconfiguring packages ...
+Selecting previously unselected package bridge-utils.
+(Reading database ... 51291 files and directories currently installed.)
+Preparing to unpack .../bridge-utils_1.5-9ubuntu1_amd64.deb ...
+Unpacking bridge-utils (1.5-9ubuntu1) ...
+Selecting previously unselected package cgroupfs-mount.
+Preparing to unpack .../cgroupfs-mount_1.2_all.deb ...
+Unpacking cgroupfs-mount (1.2) ...
+Selecting previously unselected package docker.io.
+Preparing to unpack .../docker.io_17.03.2-0ubuntu2~16.04.1_amd64.deb ...
+Unpacking docker.io (17.03.2-0ubuntu2~16.04.1) ...
+Selecting previously unselected package ubuntu-fan.
+Preparing to unpack .../ubuntu-fan_0.12.8~16.04.2_all.deb ...
+Unpacking ubuntu-fan (0.12.8~16.04.2) ...
+Processing triggers for man-db (2.7.5-1) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+Processing triggers for systemd (229-4ubuntu21.4) ...
+Setting up bridge-utils (1.5-9ubuntu1) ...
+Setting up cgroupfs-mount (1.2) ...
+Setting up docker.io (17.03.2-0ubuntu2~16.04.1) ...
+Adding group `docker' (GID 116) ...
+Done.
+Setting up ubuntu-fan (0.12.8~16.04.2) ...
+Processing triggers for systemd (229-4ubuntu21.4) ...
+Processing triggers for ureadahead (0.100.0-19) ...
+ubuntu@ip-172-31-24-100:~$ sudo service docker start
+ubuntu@ip-172-31-24-100:~$ 
+
+ubuntu@ip-172-31-24-100:~$ sudo docker pull ubuntu
+Using default tag: latest
+latest: Pulling from library/ubuntu
+124c757242f8: Pull complete 
+9d866f8bde2a: Pull complete 
+fa3f2f277e67: Pull complete 
+398d32b153e8: Pull complete 
+afde35469481: Pull complete 
+Digest: sha256:de774a3145f7ca4f0bd144c7d4ffb2931e06634f11529653b23eba85aef8e378
+Status: Downloaded newer image for ubuntu:latest
+ubuntu@ip-172-31-24-100:~$ sudo docker run -it --name jenkins --hostname jenkins-demo -p 8080:8080 ubuntu
+
+
+
+
+
+
+
+
+
+
+
+
+#################################################################################################################\
+    1  ls
+    2  apt update
+    3  apt-get install curl vim sudo wget software-properties-common ssh apt-transport-https -y
+    4  wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+    5  ls
+    6  cd 
+    7  sudo apt-get update
+    8  wget https://pkg.jenkins.io/debian-stable/binary/jenkins_2.138.1_all.deb
+   12  sudo apt install openjdk-8-jre -y
+   13  dpkg -i jenkins_2.138.1_all.deb 
+   14  apt install daemon  psmisc  net-tools -y
+   15  dpkg -i jenkins_2.138.1_all.deb 
+   16  service jenkins start
+   17  curl localhost:8080
+   18  cat /var/lib/jenkins/secrets/initialAdminPassword

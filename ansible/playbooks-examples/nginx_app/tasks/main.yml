@@ -1,0 +1,34 @@
+---
+- name: install nginx webserver CentOS
+  yum: pkg=nginx state=installed
+  when: ansible_os_family == "Redhat"
+  ignore_errors: true
+
+- name: install nginx webserver Ubuntu
+  apt: pkg=nginx state=installed
+  when: ansible_os_family == "Debian"
+  ignore_errors: true
+  
+- name: remove index.html
+  raw: rm -rf /usr/share/nginx/html/index.html
+
+- name: deploy app from files dir in our role
+  copy: src=SavoyeLETPlain.zip dest=/usr/share/nginx/html/
+
+- name: install unzip for CentOS
+  yum: pkg=unzip state=installed
+  when: ansible_os_family == "Redhat"
+  ignore_errors: true
+
+- name: install unzip for Debian
+  apt: pkg=unzip state=installed
+  when: ansible_os_family == "Debian"
+  ignore_errors: true
+
+- name: unzip the application zip file
+  unarchive:
+    dest: /usr/share/nginx/html/
+    src: /usr/share/nginx/html/SavoyeLETPlain.zip
+
+- name: start nginx service
+  service: name=nginx state=started

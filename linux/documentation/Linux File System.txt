@@ -1,0 +1,32 @@
+Linux File System
+Everything is a file and directory
+
+Structure of FS
+tree
+
+. current directory
+.. previous directory
+
+-> available file system
+NTFS
+ext4
+ext3
+ext2
+
+root - directory
+mount divices or files
+/ root dir
+/bin -> most of the programs(commands), OS level commands
+/boot -> all boot files
+/dev -> all devices on system
+/etc -> all configuration files of applications
+/media -> all other externam divices are run from here
+/home -> all users files store in this directory
+/lib -> all libraries required by os or application store home
+/lib64
+/opt -> optinal softwares installed here
+/tmp -> temporary files are stored here cleaned by OS
+/var -> variable data, logs
+/sbin -> system bin
+/root -> root users home directory
+/usr -> universal system resource, common system resources are stored hear

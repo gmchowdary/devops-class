@@ -1,0 +1,12 @@
+---
+- hosts: dev
+  tasks:
+          - name: install Package for Redhat
+            yum: pkg=httpd state=installed
+            when: ansible_os_family=="Redhat"
+            ignore_errors: true
+
+          - name: install Package for Debian
+            apt: pkg=apache2 state=installed
+            when: ansible_os_family=="Debian"
+            ignore_errors: true

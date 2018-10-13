@@ -1,0 +1,48 @@
+Shell Script
+
+--> Lixux OS 
+Linux (Base System Software) -
+	flavours
+	- CentOS (.rpm)
+	- Ubutu (.deb)
+	- Redhat Linux
+	- Aliphene
+	Shells
+	- sh
+	- bash
+	- brew(mac)
+########################################################
+	Linux Core consists of
+	- Kernal()
+	- Hardware related confguratins applic
+	- Applications
+	- File System
+	- Basic commends
+########################################################
+	job of OS
+	- Memory Management
+	- Coumptation 
+
+
+
+	X******************
+	*******************
+	*******************
+
+
+
+
+
+
+
+
+
+File System
+Linux commands
+Structure of commands
+Mange File 
+To insatall packages
+To use System Metrices
+Log
+
+Basic Scripting (sh & bash)

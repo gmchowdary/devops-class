@@ -1,0 +1,10 @@
+--- 
+#Tsting 
+- hosts: all
+  tasks: 
+    - name: Create file
+      file: path=/root/devops.txt state=touch
+    - name: Create Directory
+      file:
+        path: /root/devops_dir
+        state: directory

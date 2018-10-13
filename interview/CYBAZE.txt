@@ -1,0 +1,21 @@
+AWS
+AWS api gateway
+AWS Multy AZ
+AWS Read only RDS
+AWS Subnets CIDR
+nat gateway alternative
+codeBuild
+codeDeploy
+codePipeline
+
+GIT
+GIT workflow
+
+
+CICD?
+
+Docker
+Docker RUN vs CMD vs ENTRYPOINT
+Docker container (4)life cycle
+
+

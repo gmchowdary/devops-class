@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks: 
+        - name: stop apache2
+          service: name=apache2 state=stopped
+          ignore_errors: true
+          
+

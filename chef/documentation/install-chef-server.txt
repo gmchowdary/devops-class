@@ -1,0 +1,14 @@
+https://downloads.chef.io/chef-server
+copy the
+	Architecture: ppc64le
+		SHA256: 55d835d283435d401f0a3c83d70d9c445aaf4aa731c03c3d86d5c42ce7c58574
+
+		URL: https://packages.chef.io/files/stable/chef-server/12.17.33/ubuntu/16.04/chef-server-core_12.17.33-1_ppc64el.deb
+
+:>apt update
+:>apt install sudo vim  wget curl -y
+:>wget https://packages.chef.io/files/stable/chef-server/12.17.33/ubuntu/16.04/chef-server-core_12.17.33-1_amd64.deb
+:>mkdir /etc/init
+:>chef-server-ctl reconfigure
+
+:>chef-server-ctl cleanse

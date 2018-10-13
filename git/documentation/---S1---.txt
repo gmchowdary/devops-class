@@ -1,0 +1,16 @@
+---S1---
+What a developer do for the first time
+
+git init
+
+git add . 
+git add <filename1> <filename2> 
+
+git commit -m "your version message v1 v2"
+
+git remote add origin12 <repo URL>
+Ex - git remote add origin http://gitlab.xyz.com/root/geeth.git
+"origin" = <repo URL Location>
+
+git push origin master
+

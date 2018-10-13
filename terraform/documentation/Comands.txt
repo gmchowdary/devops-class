@@ -1,0 +1,12 @@
+$terraform plan
+It shows the what are the services going to get created once the script is executed.
+
+$terraform apply
+	>type yes for conformation
+It gets executed and build the cloud as per the script
+
+If you re apply the script by running the command second time then it just updates the terraform instances
+
+$terraform destroy
+It removes all services on cloud which are only created by terraform.
+

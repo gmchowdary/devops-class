@@ -1,0 +1,153 @@
+Source Code Management(SCM)
+- A way of maintaining Source code of application developed by developers.
+- Version Management
+
+Source Code Management Tool
+- an application that is used for management of source code is called Source Code Management Tool.
+
+Generally 2 types of tools to manage Code
+- Local tool -> Install on local machine
+- Remote tool -> Cental storage of code
+
+Before Source Code Management
+In olden times code which is developed is stored as a zip file and store it somewhere in disks.
+Disadvantages
+- cannot understand what changes happend on code in different versions.
+- No tracking of changes and who did those changes
+- Non efficient way
+
+After Source Code Management
+A tool that keep track of every change happend on source code.
+Advantages
+- Maintain code in form of versions(Ex- git commits)
+- Track all information who did changes
+- Simplest way to handle SCM(Using commands)
+- Central Storage(Repository) for all developers who developes project
+- Lot of verity of uses.
+
+Available SCM tools
+GIT, SVN, Mercurial ...
+
+GIT-SCM
+GIT - Local repository -> Desktop application
+	(Available in two types)
+		- CLI
+		- GUI
+	- Remote Repository -> Server application(Web Site)
+	(Providers of remote repository)
+		- GITHub, GITLAB, BitBucket, AWS CodeCommit ...
+
+--> Install git Local on various OS
+Ubuntu
+apt update
+apt install git -y
+
+CentOS
+yum update
+yum install git -y
+
+To install latest version
+For CLI
+	https://git-scm.com/download/linux
+For GUI
+	Search for installing GUI
+
+Windows
+Downloads exe files from this location
+	-> https://git-scm.com/download/win
+			-> Cli, git Bash(CLI)
+			-> Run -> search for GitBash 
+	git GUI
+	-> https://git-scm.com/download/gui/windows
+
+Git Architecture
+Local
+	- Whatever we edit and save in machine 
+Staging Area
+	- The local changes on moved to staging area for Git tracking
+	- If files not added to staging they are called as untracked files
+Local Repository
+	- A PLACE where all the changes stored in the form of versions
+	- perminently store in Local repo
+	Note : The files which are tracked in staging are can only be commited
+Remote Repository
+	- A cenrtral storage of code of all users
+
+Local Stash
+	- Remove all changes happend local and move to last commit
+	- Removed changes still be stored in temporary location
+
+
+Git Terminology
+Commits
+	- each version
+Branch
+	- A division where a newflow of source code is developed.
+	- It is isolated place with out causing distrubence to master.
+	- Once all changes accepted it can be merged with master branch.
+Merge
+	- process of combaining branches to form one branch
+Repository
+	- A location where changes will be stored permanently
+
+
+
+Git Commands
+_______________________________________________________________________________
+To get mannual
+	man git
+	git --help
+
+##########################################################################
+usage: git [--version] [--help] [-C <path>] [-c name=value]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone      Clone a repository into a new directory
+   init       Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add        Add file contents to the index
+   mv         Move or rename a file, a directory, or a symlink
+   reset      Reset current HEAD to the specified state
+   rm         Remove files from the working tree and from the index
+
+examine the history and state (see also: git help revisions)
+   bisect     Use binary search to find the commit that introduced a bug
+   grep       Print lines matching a pattern
+   log        Show commit logs
+   show       Show various types of objects
+   status     Show the working tree status
+
+grow, mark and tweak your common history
+   branch     List, create, or delete branches
+   checkout   Switch branches or restore working tree files
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   merge      Join two or more development histories together
+   rebase     Forward-port local commits to the updated upstream head
+   tag        Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch      Download objects and refs from another repository
+   pull       Fetch from and integrate with another repository or a local branch
+   push       Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+##########################################################################
+
+git init
+	- Initialize an empty repository
+	- The above command creates a folder called .git
+	- .git is also called as local repository where all changes will be stored
+	- .git store all changes as compressed objects
+	- From .git folder all the version control mechanisms will be done
+
+.git

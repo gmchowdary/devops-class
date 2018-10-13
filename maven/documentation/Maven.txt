@@ -1,0 +1,149 @@
+Offical URL
+http://maven.apache.org/
+
+Maven
+	Build tools are programs that automate the creation and execution of applications from sourcecode (Ex: apk for android app). Building incorporates compaling, linking and packaging the code into a useable (or) executable form.
+
+	As most of the projects are simple and reusable. Maven makes list of developers easy while creating reports, checks, build and test automation setups.
+
+Before Maven: Tool called Ant exist which do similar job of Maven defect is you need to write lot of code.
+	Structure the project in such a way
+
+Maven Provides
+-> Build: key feature
+-> Documentation: Simplies the build process
+-> Reporting: Resolve dependencies
+-> Dependencies: Take care for validityto installing/ deploy life cycle of maven
+-> SCM: Packages build a JAR/WAR -> standalone JAVA JEE packaging
+-> Releases: Runs  with tests and integration tools
+-> Destribution Problem without mount
+-> Mailing list Generates document from source code Helps to create scripts reporting and documentation
+
+Generally developers day to day jobs
+
+
+to install maven on ubuntu
+apt update
+apt install maven
+Generally developers day to day jobs
+Day to Day Developers task
+	Download dependencies(Libraries)
+	Compail Source code into Binary code
+	Packing that binary code
+	Running Tests
+	Deployment to production system
+
+Solved problems using Build Tools
+	Project Management tool
+	Common Problems
+	Multiple Jobs
+	Dependencies and version
+	Project structure
+	Build, Publish, Deploy
+
+
+Install Java
+Step 1: Add Oracle’s PPA(Personal Package Archive) to your list of sources so that Ubuntu knows where to check for the updates. Use add-apt-repository command for that.
+
+sudo add-apt-repository ppa:webupd8team/java
+
+Step 2: Then update your package repository by issuing the following command. apt-get is a command-line tool for handling packages.
+
+sudo apt-get update
+
+Steps 3: Then install Oracle JDK 8 using the following.
+
+sudo apt-get install oracle-java8-installer
+
+Step 4: Once it is installed successfully, check for the Java version.
+
+javac -version
+
+
+
+to install maven on ubuntu
+	Ubuntu
+		apt update
+		apt install maven
+	Windows
+		Install Java
+		mavan apache downloads
+		Mv ~/Downloads/apache-maven.zip /opt
+		cd /opt
+		ls
+		unzip apache-maven.zip
+		cd apache-mavan<version>
+		ls
+		export M@_HOME=/opt/apache-mavan<version>
+		export PATH=/opt/apache-mavan<version>/bin:${PATH}
+		mvn --version
+
+
+
+example
+
+mvn archtype:generate
+mvn archtype:list
+
+Maven uses Convention over configuration
+        Structure the project in such a way
+
+
+Three things about maven
+	1) Structure of maintaining source code
+	2) POM: project object model is first file read by maven when it executes a job
+	3) Maven is a CLI
+
+Defaults:
+Source code: ${/Base/Dir/of/project}/src/main/java
+Resource: ${/Base/Dir/of/project}/src/main/resources
+Tests: ${/Base/Dir/of/project}/src/test/java
+distributed JAR: ${/Base/Dir/of/project}/target
+compress byte code: ${/Base/Dir/of/project}/target/class
+
+
+ 1212  mvn compile
+ 1213  ls
+ 1214  cd t
+ 1215  cd target/
+ 1216  ls
+ 1217  cd classes/
+ 1218  ls
+ 1219  cd ..
+ 1220  ls
+ 1221  cd ..
+ 1222  ls
+ 1223  mvn test
+ 1224  ls
+ 1225  mvn test
+ 1226  sudo apt install maven
+ 1227  'sudo apt autoremove
+ 1228  sudo apt autoremove
+ 1229  cd ..
+ 1230  mvn archetype:list
+ 1231  mvn archetype:list -e
+ 1232  mvn archetype:list -e -X
+ 1233  mvn archetype list -e -X
+ 1234  mvn archetype --help
+ 1235  cd Example1/
+ 1236  mvn compile
+ 1237  mvn test-compile
+ 1238  history
+mvn clean
+ mvn install install maven plugins and dependencies and store in local system
+
+project object model
+
+version Snapshot- under development
+
+Maven repository stores all the versions of dependencies
+Maven when we run it store dependencies in local repository
+
+
+ 1334  mvn compile
+ 1335  tree
+ 1336  mvn test
+ 1337  tree
+ 1338  mvn test
+ 1339  ls
+ 1340  mvn package

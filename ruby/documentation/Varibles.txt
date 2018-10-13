@@ -1,0 +1,21 @@
+Varibles
+Datatypes
+operators
+
+Datastructurs
+	Array -> to store more then one value into one single variable we use arrays
+	- []
+	- nth location data -> n-1
+	- array index start from 0
+	arr = [] -> braces is value holder
+	arr[] -> braces represents index
+
+	Hash
+		-> key value pairs
+
+If, switch
+for, while, do while, each
+
+functions
+OOPs --- classes and methods
+modules

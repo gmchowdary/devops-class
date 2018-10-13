@@ -1,0 +1,48 @@
+Nagios(Monitoring Tool)
+About Nagios
+	Agent based monitoring
+	Monitor Infrastructure
+		Servers
+		system resources CPU MEMORY SWAP
+		devices
+		network switches
+
+
+System requirements
+-Supports only Centos or Redhat(6 or 7 versions)
+-OS need to be a minimal installation
+(http://centos.mirror.net.in/centos/7.5.1804/isos/x86_64/CentOS-7-x86_64-Minimal-1804.iso)
+-2GB RAM
+-40GB HDD
+
+Two Versions
+	Nagios core
+	Nagios XI
+
+Server                SSL               Node
+Nagios->Check_NRPE | ------> |NRPE---check_diff------> hosts
+				   |	     |       check_http
+
+NRPE -> Plugins to Monitor indevidual component
+
+Nagios XI -Licenced
+	(entire infrastructure)
+	-60days trail
+
+Nagios Log Server
+	(Log Analysis)
+
+Nagios Network Analyzer
+	(Band width)
+
+Nagios-Core
+
+
+Uses
+Alerts
+	OK, Warning, Critical
+
+#######################################################
+XI
+(Nagios port 5666)
+Navigation > Configure> 5 steps

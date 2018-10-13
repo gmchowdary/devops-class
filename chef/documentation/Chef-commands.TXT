@@ -1,0 +1,237 @@
+Chef WorkStation
+	Install Chef-dk for Search accordingly<docs.chef.io install>
+	Chef Repo Structure
+
+Insatill Chef-DK
+wget https://packages.chef.io/files/stable/chefdk/2.4.17/ubuntu/16.04/chefdk_2.4.17-1_amd64.deb
+dpkg -i chefdk_2.4.17-1_amd64.deb
+
+Chef.io
+
+
+Unzip chef-starter.zip
+
+
+CookBook File Structure
+Output:
+	Generating cookbook x
+	- Ensuring correct cookbook file content
+	- Committing cookbook files to git
+	- Ensuring delivery configuration
+	- Ensuring correct delivery build cookbook content
+	- Adding delivery configuration to feature branch
+	- Adding build cookbook to feature branch
+	- Merging delivery content feature branch to master
+
+	Your cookbook is ready. Type `cd x` to enter it.
+
+	There are several commands you can run to get started locally developing and testing your cookbook.
+	Type `delivery local --help` to see a full list.
+
+	Why not start by writing a test? Tests for the default recipe are stored at:
+
+	test/smoke/default/default_test.rb
+
+	If you'd prefer to dive right in, the default recipe can be found at:
+
+	recipes/default.rb
+
+Cook-Book Structure
+├── Berksfile
+├── chefignore
+├── .delivery
+│   ├── build_cookbook
+│   │   ├── Berksfile
+│   │   ├── chefignore
+│   │   ├── data_bags
+│   │   │   └── keys
+│   │   │       └── delivery_builder_keys.json
+│   │   ├── .kitchen.yml
+│   │   ├── LICENSE
+│   │   ├── metadata.rb
+│   │   ├── README.md
+│   │   ├── recipes
+│   │   │   ├── default.rb
+│   │   │   ├── deploy.rb
+│   │   │   ├── functional.rb
+│   │   │   ├── lint.rb
+│   │   │   ├── provision.rb
+│   │   │   ├── publish.rb
+│   │   │   ├── quality.rb
+│   │   │   ├── security.rb
+│   │   │   ├── smoke.rb
+│   │   │   ├── syntax.rb
+│   │   │   └── unit.rb
+│   │   ├── secrets
+│   │   │   └── fakey-mcfakerton
+│   │   └── test
+│   │       └── fixtures
+│   │           └── cookbooks
+│   │               └── test
+│   │                   ├── metadata.rb
+│   │                   └── recipes
+│   │                       └── default.rb
+│   ├── config.json
+│   └── project.toml
+├── .git
+├── .gitignore
+├── .kitchen.yml
+├── LICENSE
+├── metadata.rb
+├── README.md
+├── recipes
+│   └── default.rb
+├── spec
+│   ├── spec_helper.rb
+│   └── unit
+│       └── recipes
+│           └── default_spec.rb
+└── test
+    └── smoke
+        └── default
+            └── default_test.rb
+
+
+chef-repo
+├── .chef
+│   ├── gmchowdary.pem * Key File To Communicate with the server
+│   └── knife.rb * complete chef related configuration and chef server related configuration
+├── cookbooks
+│   ├── chefignore
+│   └── starter
+│       ├── attributes
+│       │   └── default.rb
+│       ├── files
+│       │   └── default
+│       │       └── sample.txt
+│       ├── metadata.rb
+│       ├── recipes
+│       │   └── default.rb
+│       └── templates
+│           └── default
+│               └── sample.erb
+├── .gitignore
+├── README.md
+└── roles
+    └── starter.rb
+
+
+To Generate a cookbook
+-> knife cookbook create <Cook Book Name> #Depricated
+-> chef cookbook generate <Cook Book Name>
+:> chef cookbook generate nginx
+
+edit recipe.rb
+cd nginx/recipies/default.rb
+
+
+	execute("Update System") do
+		command "apt update"	
+		retries 2
+		retry_delay 2
+	end
+
+	#Error because 
+	# execute("Install Nginx") do
+	# 	command "apt install nginx"	
+	# 	retries 2
+	# 	retry_delay 2
+	# end
+
+	execute("Install Nginx") do
+		command "apt install nginx -y"	
+		retries 2
+		retry_delay 2
+	end
+
+
+
+hOW TO DOWNLOAD Starter Kit
+	Login
+		Adminstration
+			Create organisation
+				click starter kit
+					click Dowload Starter Kit
+						Proceed
+							Extract the zip.file
+
+
+-> Download Starter Kit form chef.io from your account
+	-> you will get a zip file
+	-> extract that zipfile
+	-> chef-repo is the name of the extracted folder
+	-> cd chef-repo
+	-> cd cookbooks
+	-> move your generated cookbook here
+	-> try uploading tour cookbook
+	:> knife cookbook upload nginx
+
+-> knife bootstrap IPADDRESS --sudo -x <User> -p <Password> -N <Name your Node> -r "recipe[<Cookbook>@<Version>::<Recipe Name>]"
+
+Syntax:
+-> knife bootstrap IPADDRESS --sudo -x <User> -i <your pem key> -N <Name your Node> -r "recipe[<Cookbook>@<Version>::<Recipe Name>]","recipe[<Cookbook>@<Version>::<Recipe Name>]<Second One>","role[<rolename>]"
+
+:>sudo chmod 400 /home/geeth/Downloads/devops-demo/geeth-devops-demo.pem
+
+:>knife bootstrap 13.232.243.21 --sudo -x ubuntu -i /home/geeth/Downloads/devops-demo/geeth-devops-demo.pem -N DemoNodeAug01 -r "role[in]"
+
+
+role
+	"recipe[nginx::install_nginx]"
+	"recipe[nginx::update_system]"
+
+:>knife bootstrap 13.232.193.1 --sudo -x ubuntu -i /home/geeth/Downloads/devops-demo/geeth-devops-demo.pem -N DemoNodeAug01 -r "recipe[nginx]"
+
+Note:
+Success: You will see everything as green
+
+ERROR: if error in client machine
+Or you can see the same output on Screen itself
+
+:>vim /var/chef/cache/chef-stacktrace.out
+
+
+##################################################
+Two Importent folders in chef client
+:>cd /etc/chef->chef config
+:>cd /var/chef->varible data, cookbooks, error, log
+
+chef client list
+:>knife node list
+:>knife node show  DemoNodeAug01
+:>knife node delete DemoNodeAug01
+:>knife cookbook list
+:>knife node bulk deleter "<Regular Expression>"
+
+
+BootStrap Process
+
+		Server
+   /      Bootdtrap  \
+WorkStation	  -    Node
+		     SSH
+
+
+What Bootstrap does
+	>SSH
+	>CHEF SERVER CONF
+	>install chef-client in end Machine
+	***>create a client.pem key related to server into client machine
+	>Create a node and it's recipes, cookbooks and node informarion in Chef-Server
+	>ssh connection to End Node from workstation
+	>Show The process output in work station console
+	>Expand Cookbooks
+	>Execute Runlist/Roles
+	>Updates everything to chef server
+
+What Chef Server Does
+	Sync to server every 30 minutes
+	client.pem key is for communicating with the
+
+
+-> knife cookbook upload nginx
+	WARNING: No knife configuration file found
+	ERROR: Could not find cookbook abc in your cookbook path, skipping it
+	WARN: Failed to read the private key /etc/chef/client.pem: #<Errno::ENOENT: No such file or directory @ rb_sysopen - /etc/chef/client.pem>
+	ERROR: Your private key could not be loaded from /etc/chef/client.pem
+

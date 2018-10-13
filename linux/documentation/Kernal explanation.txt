@@ -1,0 +1,94 @@
+- Computer
+	Hardware
+	 	CPU, RAM, ROM, Bus
+
+	Software
+- Generally 3 types of Softwares
+	System Software
+		- provided by hardware manifacturares
+		- BIOS etc.,
+	Operating System
+		- General purpose and User interaction
+		- Ubuntu, MacX, Windows
+	Applications
+		- Specific purpose
+		- Music palyer, Video player, Photo Shop, DBMS, Web server
+
+###########################
+History of Linux
+Unix - Multiuser and MultiTasking system for enterpsice
+	Ex - Mainframes(IBM)
+Linux - 
+	Ex - any desktop linux based OS
+Linux or Unix both are same at the core level. Differnce comes in their implimentation
+Unix is parent of Linux
+
+Linux
+###########################################
+###########################################
+Operatin System
+	- For providing interaction user to computer
+	- Interaction via Commands(Shell) or GUI
+
+###########################################
+###########################################
+Kernel
+	- One program with almost 15Million lines of code
+	- Layer between Hardware and OS
+	- Kernal next layer above CPU
+	- OS and HW
+
+Grab somememory(Code) -> Processor -> ALU CPU RAM
+
+###########################################
+Purpose of Kernal
+for resource management 
+tells to Do this do that application or software that is learning
+application crashes but kernal not crashes(So linux not need to shutdown)
+Not an OS but component of OS
+Anything happening inside OS goes to the kernal
+	Networking
+	Applications running and stop the application
+	File System
+	Devices
+	Background services
+	Device Driver
+
+###########################################
+Types of Kernals
+-> Opensource kernals and Private owned kernals
+-> Micro Kernals and Monolythic Kernals(ex-Linux)
+
+
+###########################################
+Available Kernals
+	NT Kernal - Windows phone
+	Linux Kernal - Android
+	Darwin kernal - Mac, IOSs
+
+###########################################
+Advantages:
+	Central Monitoring
+	Effecient resource allocation
+	Crash recovery
+Virus 
+	- unwanted process which causes distrubence to OS or File System
+	- attack(internally)
+Hacking 
+	- Stealing data, 
+	- attack(externally)
+	Linux has no-virus because of kernal
+
+###########################################
+
+
+
+###########################################
+###########################################
+Shell	
+	- Translates user enterd commands to OS(kernal) understaning format
+	Ex
+	 - Linux -> sh, bash
+	 - Windows -> cmd, Powershell
+	 - MAc -> brew
+

@@ -1,0 +1,22 @@
+CM(tools) is infrastructure Development.
+Uses of tools
+	-> track the state of application.
+		Ex- Apache/HTTPD VS Nginx
+	-> Sclacliblity AND REUABLITY
+	-> environment management
+
+
+chef.io
+-> Chef-SDK(Development/Workstation/Define)(CookBooks)
+-> Pushed-> Chef-Server(CookBooks) ->pushed-> 
+-> Node-(Chef-client)(CookBooks)
+
+
+Chef 
+Servers
+Datacenters
+Compx
+
+
+
+dpkg -i

@@ -1,0 +1,52 @@
+install gitlab Ubuntu
+https://about.gitlab.com/installation/#ubuntu
+
+apt-get update -y
+apt-get install sudo vim curl wget software-properties-common -y
+apt-get install -y curl openssh-server ca-certificates
+apt-get install -y postfix
+
+curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh | sudo bash
+
+curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.deb.sh ################ pasing to ############### sudo bash
+
+
+DEBIAN_FRONTEND=noninteractive apt-get install tzdata
+press > 1, 44
+ln -fs /usr/share/zoneinfo/Asia/Kolkata /etc/localtime && \
+    dpkg-reconfigure --frontend noninteractive tzdata
+
+
+EXTERNAL_URL="http://gitlab.example.com" apt-get install gitlab-ee
+
+sudo cp /opt/gitlab/embedded/cookbooks/runit/files/default/gitlab-runsvdir.conf /etc/init/
+sudo /opt/gitlab/embedded/bin/runsvdir-start & sudo gitlab-ctl reconfigure
+
+Start gitlab and stop gitlab
+gitlab-ctl start
+gitlab-ctl stop
+gitlab-ctl restart
+
+
+Take backup
+apt-get install -y rsync
+gitlab location configuration location
+/etc/gitlab
+
+Git backup
+https://docs.gitlab.com/ee/raketasks/backup_restore.html
+
+run cron jobs
+sudo su -
+crontab -e
+0 2 * * * /opt/gitlab/bin/gitlab-rake gitlab:backup:create CRON=1
+
+Create backup
+sudo gitlab-rake gitlab:backup:create
+
+cd /var/opt/gitlab
+restore backup
+sudo gitlab-rake gitlab:backup:restore
+sudo gitlab-rake gitlab:backup:restore BACKUP="1493107454_2018_04_25_10.6.4-ee"
+
+

@@ -1,0 +1,69 @@
+Sinarios
+
+git global configuration commands
+Create first time push(explain staging, local repo, remote repo )
+Clone code and change and upload code
+Code Fetch specific branch
+fetch VS Pull
+pull code
+Revert
+Create Branch(Checkout, branch commands) and merge branch
+Conflicts
+	2 users on same branch
+	2 users with 2 diff branches merge
+	Pull
+	Merge
+Stash
+
+
+To start with this sinerios
+Requirements
+	-> install git on your local machine
+	-> create a repository in remote(github.com) with your own(new) account.
+
+
+1. Git global setup(Without this configuration you cannot commit locally)
+	git config --global user.name "<Your User Name>"
+	git config --global user.email "<your mail>"
+
+2. Consider You have a project with no version control, You want to setup the version control
+--> Existing folder(First time to "empty git Remote Repoitory")
+	mkdir sample-project
+	cd sample-project
+	touch files01.txt
+	cat > files01.txt
+	git init
+	git add .
+	git commit -m "Initial commit"
+	git remote add origin <repo URL>
+	git push -u origin master
+
+
+##########################################################################
+
+3. --> Create a file directly on remote repository(Web - Ex- github)
+
+3.1. Consider some developer changed his code in another computer and pushed his code to remoter repository and you want those changes.
+cd sample-project
+git fetch origin master(No Changes effected)
+	(OR)
+cd sample-project
+git pull origin master(Changes get effected)
+
+4. Delete last commits
+git reset --hard <SHA>
+
+5. Editing the same file by 2 developers and commited those files
+Modifiy same files and same lines by cloning in 2 directories
+commit and push and commit code
+You will get confilcts
+Then try to resolve them
+
+Open new folder in other
+6. Consider you want to download the Code from git repository and to work on it
+	git clone https://github.com/gmchowdary/project.git
+	cd project
+	touch file03.txt    //You just created a new file for editing
+	git add file03.txt
+	git commit -m "add file02.txt"
+	git push -u origin master

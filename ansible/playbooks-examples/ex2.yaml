@@ -1,0 +1,16 @@
+---
+- hosts: dev
+  tasks:
+          - name: Create file
+            file: path=/root/devops.txt state=touch
+
+          - name: Creat Directory
+            file: path=/root/devops_dir state=directory
+
+- hosts: qc
+  tasks:
+          - name: Create file
+            file: path=/root/devops.txt state=touch
+
+          - name: Creat Directory
+            file: path=/root/devops_dir state=directory

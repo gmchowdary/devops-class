@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+          - name: Create set files in client Node
+            file: path=/root/"{{ item }}" state=touch
+            with_items:
+                    - f1
+                    - f2
+                    - f3
+

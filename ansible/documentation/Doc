@@ -1,0 +1,252 @@
+Why Ansible?
+1. Completly Open Source
+2. Agentless(No need to install on Client)
+3. Works with SSH protocol 
+	Password less authentication
+	Or we can even provide password in file
+4. Can be written in Python (or) YAML (or) JSON
+5. Two tier architecture
+	Workstation-Node
+6. Terminologies
+	Modularization
+		Play Books
+		Roles
+7. No new directries required (Like chef-repo)
+
+Prerequisite
+1. On Workstation: OS Linux or Windows or Mac
+2. Python on both(Client-Server)
+3. 1 clients
+4. Users on both(Workstation-Node)
+5. SSH key on client-server
+	Suggestion: Password less authentication between two environments
+
+Some Utilites to Work with ansible
+	Stackoverflow for any doubts
+	Documentation docs.ansible.com: Syntaxes
+
+General Info	
+	Ansible was acquired by RedHat
+	Ansible tower: Enterprise version of Ansible
+	Ansible is CLI
+
+Install ansible on Workstation
+	Ubuntu:
+		apt install ansible -y
+
+	Windows
+		Dowload from Ansible site
+		And install it
+		And Add PATH it to your system environment variables
+
+Two importent files
+	Configure in /etc/ansible in ansible.config
+		$sudo vim /etc/ansible/ansible.cfg
+	hosts inventory file configurable clients
+		$sudo vim /etc/ansible/hosts 
+
+hosts Group
+hosts: all # in all machinen
+
+[dev]
+13.232.11.164
+
+[qc]
+13.232.11.164
+
+[stage]
+13.232.11.164
+
+####################  EX-1   ########################### 
+Prepare your First Ansible Play Book
+Adding client
+Server 1
+client 1
+
+Password Less Authentication
+Server
+sudo -i
+ssh-keygen
+click enter 3 times
+	cd ~/.ssh
+	cat id_rsa.pub
+	copy output id_rsa.pub
+
+Client
+	sudo -i
+	mkdir -p ~/.ssh
+	cat >> /root/.ssh/authorized_keys
+	cat /root/.ssh/authorized_keys
+	paste id_rsa.pub key
+
+vim /etc/ansible/hosts
+[all:vars]
+ansible_connection=ssh
+ansible_user=root
+#ansible_ssh_pass=vagrant
+
+[webservers]
+13.232.11.164 ----->>>>>AWS IP
+
+$vim ex1.test.yaml
+
+$ansible-playbook ex1.test.yaml  --syntax-check
+$ansible-playbook ex1.test.yaml
+
+######################## EX-2 ############################3
+[dev]
+13.232.11.164
+
+[qc]
+13.232.11.164
+
+
+######################## EX-3 ############################3
+When Coditional Script
+
+######################## EX-4 ############################3
+Loops Script
+
+######################## EX-5 ############################3
+Ansible Vault
+ansible-vault create ex5.yml
+ansible-vault edit ex5.yml
+ansible-vault decrypt ex5.yml
+ansible-vault decrypt ex5.yml
+ansible-vault view ex5.yml 
+
+[WARNING]: log file at /var/log/ansible.log is not writeable and we cannot create it, aborting
+
+Usage: ansible-vault [create|decrypt|edit|encrypt|encrypt_string|rekey|view] [options] [vaultfile.yml]
+
+encryption/decryption utility for Ansible data files
+
+Options:
+  --ask-vault-pass      ask for vault password
+  -h, --help            show this help message and exit
+  --new-vault-id=NEW_VAULT_ID
+                        the new vault identity to use for rekey
+  --new-vault-password-file=NEW_VAULT_PASSWORD_FILE
+                        new vault password file for rekey
+  --vault-id=VAULT_IDS  the vault identity to use
+  --vault-password-file=VAULT_PASSWORD_FILES
+                        vault password file
+  -v, --verbose         verbose mode (-vvv for more, -vvvv to enable
+                        connection debugging)
+  --version             show program's version number and exit
+
+ See 'ansible-vault <command> --help' for more information on a specific
+command.
+ERROR! Missing required action
+
+
+####################### EX-6 ################################
+Ansible Roles
+Roles are a way of auto generationg your Ansible playbook structure just like chef
+Output Folder structure
+$ansible-galaxy init <playbook_name>
+
+Same directory
+$ansible-galaxy init nginx_app
+Output: Directory Struicture
+	nginx_app/
+	├── defaults
+	│   └── main.yml
+	├── files 			-----> Verify web site here
+	├── handlers
+	│   └── main.yml
+	├── meta
+	│   └── main.yml   ------> Verify this file
+	├── README.md
+	├── tasks
+	│   └── main.yml
+	├── templates
+	├── tests
+	│   ├── inventory
+	│   └── test.yml
+	└── vars
+	    └── main.yml
+
+in same location
+$vim nginx_app.yaml
+
+
+Ansible server as client:-
+# vi hosts-> config server
+>[ansible-server] -> Group name
+>ansible ansibl_connection=local
+# ansible -m ping all
+>[prod] -> Group name
+>ansible ansible_host=<IP> ->ansible client
+# ssh root@<IP>
+# ansble -m ping prod
+# ansble -m ping ansible-server
+
+
+
+
+$ansible -m ping webservers
+O/P:
+	13.232.11.164 | SUCCESS => {
+	    "changed": false, 
+	    "ping": "pong"
+	}
+
+
+/etc/ansible
+$mkdir playbooks
+$vim file.yml
+-hosts:all (or)
+#-hosts: prod, dev -> Group
+ tasks: 
+-name: create file clients -> description
+file: path=/tmp/devops state=touch
+file: path=/opt/aws state=directory
+
+execute playbooks accross hosts inventory
+-> Push based config
+	ansible-config <playbook.yml>
+-> Ansible log file configuration
+$Vvi ansble.config
+log_path
+
+-host:all
+ tasks:
+ -nameL install tree package
+
+check /var/log/ansible.log
+
+---
+hosts: all
+-user: root
+tasks:
+-name: install package for redhat Family
+yum: pkg=httpd state=installed
+when: ansible_os_family == "RedHat"
+ignore_errors: true
+-name: install package debian family
+apt: pkg=apache2 state=installed
+when: ansible_os_family == "Debian"
+ignore_errors: true
+-name: create file for RedHat
+file: patch=/root/devops.txt state=touch
+when: ansible_os_family == "RedHat"
+ignore_errors: true
+-name: create Directory for Debian
+file: patch=/root/devops.txt state=touch
+when: ansible_os_family == "Debian"
+ignore_errors: true
+
+loops:
+loops.yml
+-host: all
+tasks:
+user:
+name: "{{item}}"
+with_items:
+-user1
+-user2
+-user3
+
+
+Ansible Adhoc

@@ -1,0 +1,31 @@
+Continus Code Management - GIT, GITLAB(Adminstration), JIRA(Ticketing)
+
+Continues Configuration Management(Scripts) - 
+-> Shell Script, Ruby(Programming Language), Python(Pragramming Language)
+-> Tools
+	-> Chef(Ruby) ***** 3-tier
+	----------------------------
+	-> Puppet }  2-tier
+		(Python or YAML) -> 1 
+	-> Ansible }
+
+Continues Integration/Continues Deployment(Build) - 
+-> Jenkins
+	-> Plugins
+	-> MAVAN(BUILD) X
+	-> JFROG(Articfactory Store) X
+-> AWS CI/CD
+
+Continues Monitoring -
+	-> Nagios(System)
+	-> ELK(Logs) *
+	-> Sysdk(Continers)
+
+Continues Testing -
+	XXXXXXXXXXXXXXXXX
+
+Other tools
+-Infrasture Tools or Apps
+	-> Docker and Docker Swarm
+	-> Vagrant
+	-> Kubernaties
